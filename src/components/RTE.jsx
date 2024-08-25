@@ -1,4 +1,12 @@
 import React from 'react';
+import tinymce from 'tinymce/tinymce';
+import 'tinymce/themes/silver/theme';
+import 'tinymce/icons/default';
+// Import plugins as needed
+import 'tinymce/plugins/advlist';
+import 'tinymce/plugins/autolink';
+// ... other plugins
+
 import { Editor } from '@tinymce/tinymce-react';
 import { Controller } from 'react-hook-form';
 
@@ -12,25 +20,22 @@ export default function RTE({ name, control, label, defaultValue = "" }) {
         defaultValue={defaultValue} // Set default value for the form
         render={({ field: { onChange, value } }) => (
           <Editor
-            apiKey='y0fxtdgjo7jgqc2s39ygiljgp3pjtqfbijaf3tai6sjl95rc'
-            value={value} // Use value instead of initialValue
-            init={{
-              height: 500,
-              menubar: true,
-              plugins: [
-                "image", "advlist", "autolink", "lists", "link", "image", "charmap", 
-                "preview", "anchor", "searchreplace", "visualblocks", "code", 
-                "fullscreen", "insertdatetime", "media", "table", "code", 
-                "help", "wordcount", "anchor",
-              ],
-              toolbar: 'undo redo | blocks | ' +
-                'bold italic forecolor | alignleft aligncenter ' +
-                'alignright alignjustify | bullist numlist outdent indent | ' +
-                'removeformat | help',
-              content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
-            }}
-            onEditorChange={onChange}
-          />
+  value={value}
+  init={{
+    height: 500,
+    menubar: true,
+    plugins: [
+      "advlist", "autolink", "lists", "link", "image", "charmap", 
+      "preview", "anchor", "searchreplace", "visualblocks", "code", 
+      "fullscreen", "insertdatetime", "media", "table", "help", "wordcount"
+    ],
+    toolbar: 'undo redo | formatselect | bold italic backcolor | \
+      alignleft aligncenter alignright alignjustify | \
+      bullist numlist outdent indent | removeformat | help'
+  }}
+  onEditorChange={onChange}
+/>
+
         )}
       />
     </div>
