@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Logo({width = '100px'}) {
+function Logo({width = '5px'}) {
   return (
-    <div>Logo</div>
+    <div><img src="https://cdn-icons-png.flaticon.com/512/60/60736.png" style={{"height":"30px","width":`${width}`}}></img></div>
   )
 }
 
-export default Logo
+export default Logo; 
